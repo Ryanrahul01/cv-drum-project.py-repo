@@ -42,7 +42,7 @@ def main():
     mpDraw = mp.solutions.drawing_utils
     mpFaceMesh = mp.solutions.face_mesh
     mpDrawingStyles = mp.solutions.drawing_styles
-    drawSpecs = mpDraw.DrawingSpec(thickness=1, circle_radius=0.5)
+    drawSpecs = mpDraw.DrawingSpec(thickness=1, circle_radius=1)
     mpFaceMeshConnections = mp.solutions.face_mesh_connections
 
     faceMesh = mpFaceMesh.FaceMesh(max_num_faces=1)
@@ -87,8 +87,8 @@ def main():
                 cv.putText(img, f"Pitch: {str(np.round(pitch, 2))}, Yaw: {str(np.round(yaw, 2))}, Roll: {str(np.round(roll, 2))}", (20,30), cv.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), thickness=2)
                 
 
-                pygame_directions.playsound(yaw, pitch, roll)
-                #pygame_directions.drum_sounds(yaw, pitch, roll)
+                #pygame_directions.playsound(yaw, pitch, roll)
+                pygame_directions.drum_sounds(yaw, pitch, roll)
             cTime = time.time()
             fps = 1 / (cTime - pTime)
             pTime = cTime
